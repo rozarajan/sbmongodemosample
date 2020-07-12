@@ -14,6 +14,7 @@
 	<name>restmongo</name>
 	<description>rest mongo project</description>
 	<packaging>war</packaging>
+	
 
 	<properties>
 		<java.version>1.8</java.version>
