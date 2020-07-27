@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <p>Hello world! Node is awesome, is it not?</p>
+    </body>
+</html>
+
+var fileSystem = require('fs');
+var express = require('express');
+var app = express();
+ 
+app.get("/login", (req, resp) => {
+    console.log("login enter");
+    fileSystem.readFile('./index.html', function(error, fileContent){
+ 
+        if(error){
+                        resp.writeHead(500, {'Content-Type': 'text/plain'});
+                        resp.end('Error');
+                    }
+                    else{
+                        resp.writeHead(200, {'Content-Type': 'text/html'});
+                        resp.write(fileContent);
+                        resp.end();
+                    }
+    });
+});
+app.listen(8080);
+console.log('Listening at: localhost:8080');
